@@ -6,7 +6,7 @@ This repository has been configured for automatic deployment to GitHub Pages usi
 
 ### 1. Next.js Configuration (`next.config.js`)
 - Configured for static export with `output: 'export'`
-- Set up proper base path for GitHub Pages (`/chi-lake-temp`)
+- Set up proper base path for GitHub Pages (`/dip-decision`)
 - Optimized for static hosting
 
 ### 2. Package.json Scripts
@@ -27,7 +27,7 @@ This repository has been configured for automatic deployment to GitHub Pages usi
 2. Go to your repository settings on GitHub
 3. Navigate to "Pages" in the sidebar
 4. Set Source to "GitHub Actions"
-5. Your site will be available at: `https://[your-username].github.io/chi-lake-temp/`
+5. Your site will be available at: `https://[your-username].github.io/dip-decision/`
 
 ## Local Development:
 - Use `npm run dev` for local development

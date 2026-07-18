@@ -6,8 +6,8 @@ const nextConfig = {
     unoptimized: true
   },
   // Configure for GitHub Pages deployment
-  basePath: process.env.NODE_ENV === 'production' ? '/chi-lake-temp' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/chi-lake-temp/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/dip-decision' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/dip-decision/' : '',
 }
 
 module.exports = nextConfig

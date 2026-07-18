@@ -3,13 +3,13 @@ import { scrapeData } from '../services/scrape'
 import { useState } from 'react'
 
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(''); // Changed from [] to ''
   const [loading, setLoading] = useState(false);
 
   const handleButtonClick = async () => {
     const dbService = new DatabaseService()
-    const date = "2024-06-01"
-    const temperature = 69
+    const date = "2024-06-02"
+    const temperature = 67
     
     await dbService.addDateAndTempToDatabase(date, temperature)
   }
@@ -42,14 +42,7 @@ export default function Home() {
       </button>
       
       <div style={{ marginTop: '20px' }}>
-        <h3>Scraped Data ({data.length}):</h3>
-
-        {data.map((item, index) => (
-          <div key={index}>
-            <p>"{item.text}"</p>
-          </div>
-        ))}
-
+        <p>{data}</p>
       </div>
     </div>
   )
