@@ -2,8 +2,10 @@ name: Daily Lake Michigan Temperature Scrape
 
 on:
   schedule:
+    - cron: '0 15 * * *'  # Runs daily at 10:00 AM CDT (15:00 UTC)
     - cron: '0 17 * * *'  # Runs daily at 12:00 PM CDT (17:00 UTC)
-  workflow_dispatch:        # Allows manual trigger from GitHub UI
+    - cron: '0 20 * * *'  # Runs daily at 3:00 PM CDT (20:00 UTC)
+  workflow_dispatch:      # Allows manual trigger from GitHub UI
 
 jobs:
   scrape:
