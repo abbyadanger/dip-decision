@@ -1,0 +1,29 @@
+name: Daily Lake Michigan Temperature Scrape
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # Runs daily at 9 AM CDT (14:00 UTC)
+  workflow_dispatch:        # Allows manual trigger from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scraper
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_KEY }}
+        run: node --input-type=module < scripts/scrape-node.js
