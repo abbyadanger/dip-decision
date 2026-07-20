@@ -87,8 +87,13 @@ async function scrapeData(
       /* Insert data into DB */
       const { error } = await supabase.from('lake-mich-temp').insert([{ dateTime: isoDateTime, temp: temperature }]);
       if (error) {
-        console.error('DB Insert Error:', error);
-        process.exit(1);
+        // Check if it's a duplicate key error
+        if (error.message?.includes('duplicate')) {
+          console.warn('Duplicate entry detected, skipping insert:', error.message);
+        } else {
+          console.error('DB Insert Error:', error);
+          process.exit(1);
+        }
       } else {
         console.log(`Saved to database: ${isoDateTime}, ${temperature}F`);
       }

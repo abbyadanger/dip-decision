@@ -28,4 +28,4 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_KEY }}
-        run: node --input-type=module < scripts/scrape-node.js
+        run: node --input-type=module < scripts/scrape.js
